@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Techtix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active" style="color: var(--primary);">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>About Techtix</h1>
+            <p>Passion, innovation, and the drive to build the future.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-block">
+                    <h2>The Techtix Story</h2>
+                    <p>Techtix is a Midhurst-based business founded and run by 14-year-old Adam. Yes, you read that right—a 14-year-old with a massive passion for technology, innovation, and helping businesses grow.</p>
+                    <p>What started as a deep interest in the digital world has quickly evolved into a cross-continental operation bridging the UK and South Africa. Despite the young leadership, Techtix delivers mature, premium solutions ranging from proactive technical support to remote Airbnb management.</p>
+                    <p>We believe that innovation isn't bound by age. It's driven by curiosity, dedication, and the willingness to power tomorrow's solutions today. When you work with Techtix, you're partnering with a team that brings fresh perspectives and relentless energy to every project.</p>
+                </div>
+                <div class="visual-block">
+                    <div class="icon-box" style="margin: 0; margin-bottom: 20px;">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 style="color: var(--secondary); margin-bottom: 10px;">Driven by Passion</h3>
+                    <p style="color: var(--text-grey);">"Age is just a number when it comes to technology. At Techtix, our focus is entirely on delivering exceptional results and pushing the boundaries of what a modern digital agency can do."</p>
+                    <p style="margin-top: 15px; font-weight: 600;">— Adam, Founder of Techtix</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>

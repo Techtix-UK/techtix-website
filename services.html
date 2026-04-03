@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Techtix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+                <span><i class="fas fa-clock"></i> Cross-Continental Support</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Capabilities</h1>
+            <p>We manage your digital footprint so you can manage your growth.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-4">
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Tech Support</h3>
+                    <p>Downtime costs money. Our proactive tech support ensures your infrastructure is secure, optimized, and running flawlessly.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <h3>Marketing Agency</h3>
+                    <p>We build brands that people remember through digital strategy, SEO, and data-driven performance marketing.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-code"></i></div>
+                    <h3>Web Design</h3>
+                    <p>We design and build stunning, responsive websites that perfectly reflect your brand and drive real conversions.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-house-signal"></i></div>
+                    <h3>Remote Airbnb</h3>
+                    <p>We handle the entirely digital side of hosting—including dynamic pricing, listing optimization, and 24/7 guest communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>

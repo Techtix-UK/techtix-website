@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Divisions | Techtix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="divisions.html" class="active">Divisions</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Global Presence, Local Expertise</h1>
+            <p>Bridging Europe and Africa to provide unmatched support.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-block">
+                    <h2>The "Follow the Sun" Advantage</h2>
+                    <p>Techtix bridges the gap between Europe and Africa, providing seamless support, creativity, and management across two major continents.</p>
+                    <ul class="check-list" style="margin-top: 20px;">
+                        <li><i class="fas fa-check-circle"></i> <strong>Shared Timezones:</strong> Seamless communication without the delay.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Unified Standards:</strong> Premium service quality across both divisions.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Always Online:</strong> Distributed teams mean someone is always monitoring your assets.</li>
+                    </ul>
+                </div>
+                <div class="visual-block">
+                    <div class="location-item">
+                        <div class="flag">🇬🇧</div>
+                        <div class="loc-details">
+                            <h4>UK Division</h4>
+                            <p>Call us directly: <strong>+44 1730 639318</strong></p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="flag">🇿🇦</div>
+                        <div class="loc-details">
+                            <h4>South Africa Division</h4>
+                            <p>Call us directly: <strong>+27 87 822 1856</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>
