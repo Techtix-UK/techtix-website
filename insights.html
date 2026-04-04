@@ -1,19 +1,163 @@
-<div class="page-header">
-    <div class="container">
-        <h1>Latest Insights</h1>
-        <p>Tech trends, marketing tips, and global management strategies.</p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Techtix Labs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        .read-more:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white !important;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+    </style>
+</head>
+<body class="bg-light">
 
-<section class="section-padding">
-    <div class="container">
-        <div class="grid-4">
-            <div class="card" style="text-align: left;">
-                <span style="color: var(--primary); font-weight: 700;">April 2026</span>
-                <h3>The Future of Remote Airbnb Hosting</h3>
-                <p>How we use AI and automation to manage properties from Midhurst.</p>
-                <a href="#" style="color: var(--primary); font-weight: 600;">Read More →</a>
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+                <span><i class="fas fa-clock"></i> LDN: <span id="uk-time">--:--</span></span>
+                <span><i class="fas fa-clock"></i> SA: <span id="sa-time">--:--</span></span>
             </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
             </div>
+        </div>
     </div>
-</section>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="insights.html" class="active" style="color: var(--primary);">Insights</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Techtix Insights</h1>
+            <p>Expert perspectives on Tech, Marketing, and Global Management.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                
+                <div class="card" style="text-align: left;">
+                    <span class="blog-meta">Airbnb Management</span>
+                    <h3>The "Follow the Sun" Strategy</h3>
+                    <p>How we provide 24/7 guest support for UK properties by leveraging our South African division.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+
+                <div class="card" style="text-align: left;">
+                    <span class="blog-meta">Web Design</span>
+                    <h3>Conversion-First Design</h3>
+                    <p>Why a pretty website isn't enough in 2026. We look at the data driving modern user behavior.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+
+                <div class="card" style="text-align: left;">
+                    <span class="blog-meta">Tech Support</span>
+                    <h3>Security for Small Business</h3>
+                    <p>Top 5 digital threats facing local businesses in Midhurst and how to proactively stop them.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+
+                <div class="card" style="text-align: left;">
+                    <span class="blog-meta">Entrepreneurship</span>
+                    <h3>The Next Generation of Tech</h3>
+                    <p>Founder Adam discusses the future of Techtix and running a cross-continental business at 14.</p>
+                    <a href="#" class="read-more">Read Article →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: #fff; border-top: 1px solid #eee;">
+        <div class="container" style="text-align: center;">
+            <h3 style="margin-bottom: 20px;">Helping us power tomorrow?</h3>
+            <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
+              <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
+            </p>
+        </div>
+    </footer>
+
+    <a href="contact.html" class="floating-cta">
+        <i class="fas fa-paper-plane"></i>
+    </a>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+        function updateClocks() {
+            const options = { hour: '2-digit', minute: '2-digit', hour12: false };
+            document.getElementById('uk-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+            document.getElementById('sa-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Africa/Johannesburg' });
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+    </script>
+</body>
+</html>
