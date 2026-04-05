@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Techtix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-badge {
+            background: rgba(240, 78, 35, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dashboard-mockup {
+            background: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid #cbd5e1;
+        }
+        .mockup-header {
+            background: #334155;
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+        }
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+        }
+        .mockup-dot:nth-child(1) { background: #ef4444; }
+        .mockup-dot:nth-child(2) { background: #f59e0b; }
+        .mockup-dot:nth-child(3) { background: #10b981; }
+        .mockup-body {
+            padding: 20px;
+            background: #f8fafc;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .mockup-body h3 {
+            color: #0a549d;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .mockup-body p {
+            color: #64748b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Enterprise-grade software solutions engineered by Techtix.</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-block">
+                    <span class="product-badge">Flagship Platform</span>
+                    <h2 style="font-size: 2.8rem; margin: 15px 0; color: var(--secondary);">OmniDeploy IT</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-grey); margin-bottom: 25px;">The ultimate all-in-one IT Helpdesk, Asset Management, and Remote Deployment platform built specifically for modern MSPs and internal IT departments.</p>
+                    
+                    <ul class="check-list" style="margin-bottom: 35px;">
+                        <li><i class="fas fa-ticket-alt"></i> <strong>Smart Ticketing:</strong> Email-to-ticket via IMAP/Graph API with automated routing and CC support.</li>
+                        <li><i class="fas fa-laptop-code"></i> <strong>Asset Tracking:</strong> QR barcode scanning, physical hardware check-ins, and automated EULA e-signatures.</li>
+                        <li><i class="fas fa-server"></i> <strong>MDM Deployment:</strong> Push software packages silently to connected remote endpoints.</li>
+                        <li><i class="fas fa-users"></i> <strong>Unified Directory:</strong> Manage client companies, employee profiles, and multi-tier admin roles.</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn btn-primary">Request a Demo</a>
+                </div>
+                
+                <div class="visual-block" style="background: transparent; box-shadow: none; padding: 0;">
+                    <div class="dashboard-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                        </div>
+                        <div class="mockup-body">
+                            <i class="fas fa-network-wired" style="font-size: 4rem; color: var(--primary); margin-bottom: 15px;"></i>
+                            <h3>OmniDeploy IT</h3>
+                            <p>Centralized IT Infrastructure Management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose OmniDeploy?</h2>
+                <p>Designed to completely eliminate software bloat by bringing your core IT operations under one roof.</p>
+            </div>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Secure Licensing</h3>
+                    <p>Cryptographically signed HMAC-SHA256 license keys ensure your platform modules are secure and tamper-proof.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                    <h3>Lightning Fast</h3>
+                    <p>Built with a lightweight footprint to ensure ticket updates, asset searches, and dashboard metrics load instantly.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-book"></i></div>
+                    <h3>Knowledge Base</h3>
+                    <p>Integrated FAQ and Knowledge Base system allows you to publish self-service articles directly to your end-users.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Canned Responses</h3>
+                    <p>Save your technicians time with dynamic canned responses that automatically inject user and ticket variables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+    </script>
+</body>
+</html>

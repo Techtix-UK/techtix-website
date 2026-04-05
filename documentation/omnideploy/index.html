@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniDeploy IT Documentation | Techtix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css"> 
+    <style>
+        /* --- CUSTOM DOCUMENTATION STYLES --- */
+        .doc-layout {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .doc-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 110px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .doc-sidebar h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .doc-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .doc-sidebar > ul > li {
+            margin-bottom: 15px;
+        }
+
+        .doc-sidebar ul ul {
+            margin-left: 20px;
+            margin-top: 8px;
+            border-left: 1px solid #eee;
+            padding-left: 10px;
+        }
+
+        .doc-sidebar ul ul li {
+            margin-bottom: 8px;
+        }
+
+        .doc-sidebar ul li a {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .doc-sidebar ul ul li a {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        .doc-sidebar ul li a:hover, .doc-sidebar ul li a.active-link {
+            color: var(--primary);
+            transform: translateX(3px);
+        }
+
+        .doc-sidebar ul li a i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        .doc-content {
+            flex: 1;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+        }
+
+        .doc-section {
+            margin-bottom: 70px;
+        }
+
+        .doc-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .doc-section h2 {
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .doc-section h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        .doc-section h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .doc-section p, .doc-section ul, .doc-section ol {
+            margin-bottom: 15px;
+            color: #475569;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .doc-section ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        .doc-note {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .doc-note strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .doc-warning {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .code-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #1e293b;
+        }
+
+        code {
+            background: #f1f5f9;
+            color: #ef4444;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Responsive adjustments */
+        @media (max-width: 900px) {
+            .doc-layout {
+                flex-direction: column;
+            }
+            .doc-sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+            .doc-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
+            </div>
+            <div class="top-bar-info">
+                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
+                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <img src="/assets/logo.png" alt="Techtix Logo">
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/services.html">Services</a></li>
+                <li><a href="/products.html" class="active">Products</a></li>
+                <li><a href="/contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>OmniDeploy IT</h1>
+            <p>Comprehensive Administrator & User Documentation</p>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="doc-layout">
+                
+                <aside class="doc-sidebar">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li>
+                            <a href="#overview"><i class="fas fa-home"></i> Platform Overview</a>
+                        </li>
+                        <li>
+                            <a href="#user-guide"><i class="fas fa-user"></i> End-User Guide</a>
+                            <ul>
+                                <li><a href="#user-portal">The Client Portal</a></li>
+                                <li><a href="#user-tickets">Submitting Tickets</a></li>
+                                <li><a href="#user-eula">Hardware Handover (EULA)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#agent-guide"><i class="fas fa-headset"></i> IT Agent Guide</a>
+                            <ul>
+                                <li><a href="#agent-tickets">Ticket Queues & Management</a></li>
+                                <li><a href="#agent-collision">Ticket Collision & Locking</a></li>
+                                <li><a href="#agent-assets">Asset Inventory</a></li>
+                                <li><a href="#agent-dispatch">Dispatch & Quick Actions</a></li>
+                                <li><a href="#agent-directory">Directory Management</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#admin-guide"><i class="fas fa-cogs"></i> SuperAdmin Guide</a>
+                            <ul>
+                                <li><a href="#admin-email">Email Integration (IMAP/Graph)</a></li>
+                                <li><a href="#admin-classifications">Classifications & Help Topics</a></li>
+                                <li><a href="#admin-canned">Dynamic Canned Responses</a></li>
+                                <li><a href="#admin-mdm">MDM & Software Deployment</a></li>
+                                <li><a href="#admin-staff">Staff Management</a></li>
+                                <li><a href="#admin-kb">Knowledge Base (FAQ)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#licensing"><i class="fas fa-key"></i> Licensing & Activation</a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <div class="doc-content">
+                    
+                    <div id="overview" class="doc-section">
+                        <h2>Platform Overview</h2>
+                        <p>Welcome to the official documentation for <strong>OmniDeploy IT</strong>. OmniDeploy is a hyper-efficient, fully integrated IT management platform engineered by Techtix. It is designed specifically to bring Helpdesk Ticketing, IT Asset Management (ITAM), Contact Directory, and Mobile Device Management (MDM) into a single, unified interface.</p>
+                        <p>OmniDeploy uses a strict role-based architecture consisting of three primary interaction tiers:</p>
+                        <ul>
+                            <li><strong>End-Users / Clients:</strong> Access the public-facing portals to submit tickets, review active requests, read FAQ articles, and sign hardware agreements.</li>
+                            <li><strong>Helpdesk Agents:</strong> Access the core <code>/staff</code> portal to resolve tickets, manage assets, check-in hardware via barcode scanning, and utilize canned responses.</li>
+                            <li><strong>SuperAdmins:</strong> Manage global settings, email API configurations, agent accounts, software deployment packages, and platform licensing.</li>
+                        </ul>
+                    </div>
+
+                    <div id="user-guide" class="doc-section">
+                        <h2>End-User Guide</h2>
+                        <p>The End-User experience is designed to be entirely frictionless. Users do not need a preexisting account to submit a request, though creating one provides enhanced visibility into their history.</p>
+                        
+                        <h3 id="user-portal">The Client Portal</h3>
+                        <p>Users navigate to <code>/portal</code> (or the root domain) to access the support center. If they are a first-time user, they can submit a "Guest" ticket, or click <strong>Create Account / Set Password</strong>.</p>
+                        
+                        <div class="doc-note">
+                            <strong>Seamless Account Linking:</strong>
+                            If an IT Agent has already added a user profile to the Directory (e.g., during onboarding), the user simply needs to register using that exact email address. OmniDeploy will automatically map their new login to their existing profile, instantly granting them access to their historic tickets and assigned assets.
+                        </div>
+
+                        <h3 id="user-tickets">Submitting Tickets</h3>
+                        <p>Users can submit issues to the IT department in two distinct ways:</p>
+                        <ol>
+                            <li><strong>Web Portal:</strong> By clicking "+ New Ticket", the user selects a specific Help Topic, enters a subject, provides details, and uploads relevant screenshots or error logs.</li>
+                            <li><strong>Email Integration:</strong> If SuperAdmins have configured an inbound mailbox (e.g., <em>helpdesk@company.com</em>), users can simply email their issue. The OmniDeploy backend will parse the email, strip out signatures, download attachments, and automatically generate a ticket under the "General" default category.</li>
+                        </ol>
+
+                        <h3 id="user-eula">Hardware Handover (EULA)</h3>
+                        <p>OmniDeploy eliminates paper trails for hardware assignments. When IT provisions a new asset (like a laptop or phone) to a user, they require a signature.</p>
+                        <p>The user navigates to the dedicated endpoint: <code>/eula?asset=[ASSET_TAG]</code>. This can be done by clicking a link emailed to them, or by scanning the QR code physically affixed to the device.</p>
+                        <p>On this page, the user reviews the company's Acceptable Use Policy and physically signs the screen using their mouse or touchscreen. Upon submission, OmniDeploy generates a timestamped, unalterable digital receipt and binds it permanently to the asset's audit history.</p>
+                    </div>
+
+                    <div id="agent-guide" class="doc-section">
+                        <h2>IT Agent Guide</h2>
+                        <p>The Staff Portal (<code>/staff</code>) is the engine room of OmniDeploy IT. Helpdesk Agents log in here to manage the day-to-day operations of the IT environment.</p>
+
+                        <h3 id="agent-tickets">Ticket Queues & Management</h3>
+                        <p>The Tickets tab is the default landing page. It provides real-time metrics (Open, Unassigned, High/Emergency, Closed Today) and allows agents to filter via four main queues: <strong>All Open</strong>, <strong>My Tickets</strong>, <strong>Unassigned</strong>, and <strong>Closed</strong>.</p>
+                        <p>Clicking a ticket opens the comprehensive management modal:</p>
+                        <ul>
+                            <li><strong>Ticket Thread:</strong> Displays the entire conversation history, including system audit trails (e.g., "Status changed: OPEN -> IN PROGRESS").</li>
+                            <li><strong>Internal Notes:</strong> Agents can post hidden notes to a ticket. These are styled differently in the thread and are strictly invisible to the End-User.</li>
+                            <li><strong>CC Emails:</strong> Agents can add comma-separated email addresses to loop external vendors or managers into the automated notification cycle.</li>
+                            <li><strong>Attachments:</strong> Files uploaded by the user or via email are securely stored and can be downloaded with a single click.</li>
+                        </ul>
+
+                        <h3 id="agent-collision">Ticket Collision & Locking</h3>
+                        <p>To prevent two agents from answering the same ticket simultaneously, OmniDeploy features an automated <strong>Ticket Lock</strong> system.</p>
+                        <p>When Agent A opens a ticket, the system locks it to their account. If Agent B opens that exact same ticket, Agent B will see a bright yellow warning banner stating: <em>"⚠️ Warning: Agent A is currently viewing/editing this ticket!"</em></p>
+
+                        <h3 id="agent-assets">Asset Inventory</h3>
+                        <p>The Asset grid maintains a live record of all hardware. It supports deep searching by Asset Tag, Serial Number, User, Make, or Model.</p>
+                        <p>Inside an Asset profile, agents can track deep technical specifications (OS, CPU, RAM, MAC/IP Address, Storage Drives) as well as remote support credentials (AnyDesk ID and Password). You can also upload related documentation (like purchase invoices or warranty certificates) directly to the asset.</p>
+
+                        <h3 id="agent-dispatch">Dispatch & Quick Actions</h3>
+                        <p>The Dispatch tab is designed for rapid response during phone calls or physical walk-ins.</p>
+                        <ul>
+                            <li><strong>Raise Ticket (Dispatch):</strong> Type a user's name or phone number. OmniDeploy will query the Directory, pull their profile, and automatically populate their assigned devices in a dropdown so you can log a ticket on their behalf in seconds.</li>
+                            <li><strong>Hardware Check-In/Out:</strong> Click the "📷 Scan" button to activate the device's webcam or smartphone camera. Scan an asset's barcode to instantly reassign it, check it into stock, or check it out to a user.</li>
+                        </ul>
+
+                        <h3 id="agent-directory">Directory Management</h3>
+                        <p>The Directory houses Profiles for both <strong>Users</strong> and <strong>Companies</strong> (useful for Managed Service Providers supporting multiple businesses).</p>
+                        <p>Opening a profile provides a 360-degree view of that entity, displaying all contact information, a list of all currently assigned hardware, and a history of their 10 most recent support tickets.</p>
+                    </div>
+
+                    <div id="admin-guide" class="doc-section">
+                        <h2>SuperAdmin Guide</h2>
+                        <p>SuperAdmins have exclusive access to the <strong>Settings (Admin)</strong> tab, which dictates the global behavior, routing, and security of the entire OmniDeploy instance.</p>
+
+                        <h3 id="admin-email">Email Integration (IMAP/Graph)</h3>
+                        <p>OmniDeploy can act as a fully functional email client, transforming inbound emails into tickets and sending outbound HTML-formatted replies.</p>
+                        <ul>
+                            <li><strong>SMTP (Outbound):</strong> Required for the system to send notifications, ticket replies, and EULA receipts. Enter your mail server host, port, user, and password.</li>
+                            <li><strong>Inbound - Standard IMAP:</strong> Legacy protocol supported by most basic web hosts and Gmail. Requires the IMAP Host, Port (usually 993), User, and an App Password.</li>
+                            <li><strong>Inbound - Microsoft Graph API:</strong> The modern, highly secure protocol required for Office 365 and Azure environments (since Microsoft disabled Basic Auth). You must provide the <strong>Azure Tenant ID</strong>, <strong>Client ID</strong>, and <strong>Client Secret</strong>. 
+                            <br><br><em>Configuration Note:</em> The Azure App Registration must be granted the <code>Mail.ReadWrite</code> Application Permission, and an Azure Administrator must click "Grant admin consent for [Organization]".</li>
+                        </ul>
+
+                        <h3 id="admin-classifications">Classifications & Help Topics</h3>
+                        <p>Customize the platform's data taxonomies to fit your organization.</p>
+                        <ul>
+                            <li><strong>Asset Categories:</strong> A comma-separated list populating the dropdown when creating hardware (e.g., <em>Laptop, Server, Switch, Printer</em>).</li>
+                            <li><strong>Help Topics:</strong> Define routing categories for tickets. Topics marked as <strong>Private</strong> will be completely hidden from the End-User portal, allowing IT staff to categorize backend/infrastructure tickets without cluttering the public UI.</li>
+                        </ul>
+
+                        <h3 id="admin-canned">Dynamic Canned Responses</h3>
+                        <p>SuperAdmins can pre-write standard replies (e.g., "Password Reset Instructions", "Reboot Required") to ensure standardized communication.</p>
+                        <p>Canned responses support dynamic variable injection. When an agent selects a response, OmniDeploy will automatically replace tags before inserting the text into the reply box. Available tags are:</p>
+                        <div class="code-block">
+                            {ticket_id}   // Injects the current ticket number (e.g., TKT-10492)<br>
+                            {user_name}   // Injects the requester's full name<br>
+                            {agent_name}  // Injects the replying IT Agent's name
+                        </div>
+
+                        <h3 id="admin-mdm">MDM & Software Deployment</h3>
+                        <p>If your organization utilizes the OmniDeploy Desktop Agent (installed locally on Windows endpoints), SuperAdmins can register software packages via the backend database.</p>
+                        <p>Once a package is registered, any IT Agent can open an Asset profile, select the software from the "Remote Software Deployment" dropdown, and click Deploy. OmniDeploy will queue the task, and the desktop agent will silently download and execute the installer during its next polling cycle.</p>
+
+                        <h3 id="admin-staff">Staff Management</h3>
+                        <p>SuperAdmins control access to the <code>/staff</code> portal. You can create accounts, assign Full Names, and designate roles.</p>
+                        <p><strong>Roles:</strong></p>
+                        <ul>
+                            <li><code>Helpdesk</code>: Standard access. Cannot see or access the Settings tab.</li>
+                            <li><code>SuperAdmin</code>: Full access, including global settings, API keys, and Staff account creation.</li>
+                        </ul>
+
+                        <h3 id="admin-kb">Knowledge Base (FAQ)</h3>
+                        <p>The Knowledge Base (KB) module allows admins to publish rich-text articles to the End-User portal to encourage self-service and deflect common tickets. Articles can be saved as <strong>Drafts</strong> (hidden) while being written, and then toggled to <strong>Published</strong> to make them instantly live.</p>
+                    </div>
+
+                    <div id="licensing" class="doc-section">
+                        <h2>Licensing & Activation</h2>
+                        <p>OmniDeploy IT requires a valid cryptographic license key to operate. The license dictates your expiration date and which modules (Tickets, Assets, Directory, Settings) are visible in the navigation bar.</p>
+                        
+                        <div class="doc-warning doc-note" style="border-left-color: #f59e0b;">
+                            <strong>License Expiration:</strong>
+                            If your license expires, or if an invalid key is applied, the OmniDeploy staff portal will immediately lock down. All agents will be redirected to a blank activation screen until a valid key is provided.
+                        </div>
+
+                        <h4>Applying a License Key</h4>
+                        <ol>
+                            <li>Log in as a user with the <code>SuperAdmin</code> role.</li>
+                            <li>Navigate to the <strong>Settings (Admin)</strong> tab.</li>
+                            <li>Click on the <strong>Licensing</strong> pill-tab.</li>
+                            <li>Paste your new HMAC-SHA256 signature into the "Update License Key" input box.</li>
+                            <li>Click <strong>Apply Key</strong>. The portal will verify the cryptographic signature against your master secret and automatically reboot the interface.</li>
+                        </ol>
+                        <p>If you need to extend your operational timeframe or unlock additional platform modules, please contact your Techtix Account Manager to generate a new key.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.doc-sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.doc-sidebar a').forEach(a => a.classList.remove('active-link'));
+                // Add active class to clicked link
+                this.classList.add('active-link');
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100, // Offset for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if(hamburger) {
+            hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        }
+    </script>
+</body>
+</html>
