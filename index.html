@@ -3,19 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techtix | Powering Innovation</title>
+    
+    <title>Techtix | Tech Support, Marketing & Web Design Agency</title>
+    <meta name="description" content="Techtix is your cross-continental partner for Tech Support, Innovative Marketing, Web Design, and Premium Remote Airbnb Management in the UK and SA.">
+    <meta name="keywords" content="Tech Support, Digital Marketing, Web Design, Airbnb Management, Tech Agency UK, South Africa Tech Support">
+    <meta name="author" content="Techtix">
+    <link rel="canonical" href="https://www.techtixlabs.co.uk/">
+
+    <meta property="og:title" content="Techtix | Powering Innovation & Digital Services">
+    <meta property="og:description" content="Your cross-continental partner for Tech Support, Innovative Marketing, Web Design, and Premium Remote Airbnb Management.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.techtixlabs.co.uk/">
+    <meta property="og:image" content="https://www.techtixlabs.co.uk/assets/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Techtix",
+      "url": "https://www.techtixlabs.co.uk/",
+      "logo": "https://www.techtixlabs.co.uk/assets/logo.png",
+      "email": "hello@techtixlabs.co.uk",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44-1730-639318",
+          "contactType": "customer support",
+          "areaServed": "GB",
+          "availableLanguage": "English"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+27-87-822-1856",
+          "contactType": "customer support",
+          "areaServed": "ZA",
+          "availableLanguage": "English"
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- TrustBox script -->
+    
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-    <!-- End TrustBox script -->
+    
     <style>
-        /* Addition for the Floating CTA */
+        /* Floating CTA */
         .floating-cta {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--primary);
+            background: var(--primary, #0056b3); /* Added fallback color */
             color: white !important;
             width: 60px;
             height: 60px;
@@ -26,11 +65,11 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             z-index: 999;
             font-size: 1.5rem;
-            transition: var(--transition);
+            transition: transform 0.3s ease, background 0.3s ease; /* Explicit transitions */
         }
         .floating-cta:hover {
             transform: scale(1.1);
-            background: var(--secondary);
+            background: var(--secondary, #004494); /* Added fallback color */
         }
     </style>
 </head>
@@ -39,58 +78,61 @@
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-info">
-                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
-                <span><i class="fas fa-clock"></i> LDN: <span id="uk-time">--:--</span></span>
-                <span><i class="fas fa-clock"></i> SA: <span id="sa-time">--:--</span></span>
+                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@techtixlabs.co.uk" style="color: inherit; text-decoration: none;">hello@techtixlabs.co.uk</a></span>
+                <span><i class="fas fa-clock" aria-hidden="true"></i> LDN: <span id="uk-time">--:--</span></span>
+                <span><i class="fas fa-clock" aria-hidden="true"></i> SA: <span id="sa-time">--:--</span></span>
             </div>
             <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
-                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+441730639318" style="color: inherit; text-decoration: none;">UK: +44 1730 639318</a></span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+27878221856" style="color: inherit; text-decoration: none;">SA: +27 87 822 1856</a></span>
             </div>
         </div>
     </div>
 
     <header>
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="Techtix Logo">
+            <a href="index.html" class="logo" aria-label="Techtix Home">
+                <img src="assets/logo.png" alt="Techtix Tech Support and Web Design Logo">
             </a>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Toggle navigation menu" style="background:none; border:none; cursor:pointer; font-size:1.5rem;">
                 <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="divisions.html">Divisions</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
-            </ul>
+            </button>
+            <nav aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="divisions.html">Divisions</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Powering Innovation.<br><span>Delivering Tomorrow.</span></h1>
-            <p>Your cross-continental partner for Tech Support, Innovative Marketing, Web Design, and Premium Remote Airbnb Management.</p>
-            <div class="hero-btns">
-                <a href="contact.html" class="btn btn-primary">Get Started</a>
-                <a href="services.html" class="btn btn-outline">Our Services</a>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Powering Innovation.<br><span>Delivering Tomorrow.</span></h1>
+                <p>Your cross-continental partner for Tech Support, Innovative Marketing, Web Design, and Premium Remote Airbnb Management.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="services.html" class="btn btn-outline">Our Services</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <section class="reviews" style="padding: 40px 0;">
+            <div class="container">
+                <div style="max-width: 600px; margin: 0 auto; text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <h2 style="margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 1.25rem;">Have we worked together?</h2>
 
-        <div style="max-width: 600px; margin: 0 auto; text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <h4 style="margin-bottom: 15px; font-family: 'Poppins';">Have we worked together?</h4>
-
-            <!-- TrustBox widget - Review Collector -->
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
-            <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+                    <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
+                        <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+                    </div>
+                    </div>
             </div>
-            <!-- End TrustBox widget -->
-            </div>
-    </div>
-</section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -101,24 +143,32 @@
         </div>
     </footer>
 
-    <a href="contact.html" class="floating-cta">
-        <i class="fas fa-paper-plane"></i>
+    <a href="contact.html" class="floating-cta" aria-label="Send us an email">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i>
     </a>
 
     <script>
         // Mobile Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        if(hamburger && navLinks) {
+            hamburger.addEventListener('click', () => { 
+                navLinks.classList.toggle('active'); 
+                const isExpanded = navLinks.classList.contains('active');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+            });
+        }
 
         // Global Clocks Logic
         function updateClocks() {
             const options = { hour: '2-digit', minute: '2-digit', hour12: false };
             try {
-                document.getElementById('uk-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
-                document.getElementById('sa-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Africa/Johannesburg' });
+                const ukClock = document.getElementById('uk-time');
+                const saClock = document.getElementById('sa-time');
+                if(ukClock) ukClock.textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+                if(saClock) saClock.textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Africa/Johannesburg' });
             } catch (e) {
-                console.log("Clock error:", e);
+                console.error("Clock error:", e);
             }
         }
         setInterval(updateClocks, 1000);
