@@ -10,14 +10,12 @@
     <meta name="author" content="Techtix">
     <link rel="canonical" href="https://www.techtixlabs.co.uk/">
 
-    <!-- Open Graph Metadata -->
     <meta property="og:title" content="Techtix | Powering Innovation & Digital Services">
     <meta property="og:description" content="Your cross-continental partner for Tech Support, Innovative Marketing, Web Design, and Premium Remote Airbnb Management.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.techtixlabs.co.uk/">
     <meta property="og:image" content="https://www.techtixlabs.co.uk/assets/logo.png">
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -45,69 +43,58 @@
     }
     </script>
 
-    <!-- FontAwesome & Custom Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Trustpilot Widget Script -->
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     
     <style>
-        /* Floating CTA - Smooth performance tweak using your variable config */
+        /* Floating CTA */
         .floating-cta {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--primary);
-            color: var(--white) !important;
+            background: var(--primary, #0056b3); /* Added fallback color */
+            color: white !important;
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(240, 78, 35, 0.3);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             z-index: 999;
             font-size: 1.5rem;
-            transition: var(--transition);
+            transition: transform 0.3s ease, background 0.3s ease; /* Explicit transitions */
         }
         .floating-cta:hover {
-            transform: scale(1.1) rotate(-10deg);
-            background: var(--secondary);
-        }
-        /* Extra accessibility fix for standard topbar phone/email links visibility */
-        .top-bar-info a {
-            color: inherit;
-        }
-        .top-bar-info a:hover {
-            color: var(--white);
+            transform: scale(1.1);
+            background: var(--secondary, #004494); /* Added fallback color */
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Info Bar -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-info">
-                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@techtixlabs.co.uk">hello@techtixlabs.co.uk</a></span>
+                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@techtixlabs.co.uk" style="color: inherit; text-decoration: none;">hello@techtixlabs.co.uk</a></span>
                 <span><i class="fas fa-clock" aria-hidden="true"></i> LDN: <span id="uk-time">--:--</span></span>
                 <span><i class="fas fa-clock" aria-hidden="true"></i> SA: <span id="sa-time">--:--</span></span>
             </div>
             <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+441730639318">UK: +44 1730 639318</a></span>
-                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+27878221856">SA: +27 87 822 1856</a></span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+441730639318" style="color: inherit; text-decoration: none;">UK: +44 1730 639318</a></span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+27878221856" style="color: inherit; text-decoration: none;">SA: +27 87 822 1856</a></span>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation Header -->
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo" aria-label="Techtix Home">
                 <img src="assets/logo.png" alt="Techtix Tech Support and Web Design Logo">
             </a>
-            <button class="hamburger" aria-label="Toggle navigation menu" style="background:none; border:none;">
+            <button class="hamburger" aria-label="Toggle navigation menu" style="background:none; border:none; cursor:pointer; font-size:1.5rem;">
                 <i class="fas fa-bars"></i>
             </button>
             <nav aria-label="Main Navigation">
@@ -123,7 +110,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <div class="container hero-content">
                 <h1>Powering Innovation.<br><span>Delivering Tomorrow.</span></h1>
@@ -135,113 +121,34 @@
             </div>
         </section>
 
-        <!-- Dynamic Core Services Section (Leveraging your layout grid framework) -->
-        <section class="section-padding">
+        <section class="reviews" style="padding: 40px 0;">
             <div class="container">
-                <div class="section-header">
-                    <h2>Our Core Ecosystem</h2>
-                    <p>Cutting-edge digital management optimized for global performance.</p>
-                </div>
-                
-                <div class="grid-4">
-                    <!-- Service 1 -->
-                    <div class="card">
-                        <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                        <h3>Web Design</h3>
-                        <p>Stunning, fast-loading, highly-optimized websites purpose-built to convert clicks into enterprise revenue.</p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="card">
-                        <div class="icon-box"><i class="fas fa-headset"></i></div>
-                        <h3>Tech Support</h3>
-                        <p>Reliable infrastructure management, direct security updates, and cross-continental helpdesk resources.</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="card">
-                        <div class="icon-box"><i class="fas fa-bullhorn"></i></div>
-                        <h3>Digital Marketing</h3>
-                        <p>Aggressive growth tactics, hyper-targeted campaigns, and performance data strategies engineered to scale.</p>
-                    </div>
-                    <!-- Service 4 -->
-                    <div class="card">
-                        <div class="icon-box"><i class="fas fa-key"></i></div>
-                        <h3>Airbnb Management</h3>
-                        <p>Premium automation, continuous remote support, and professional hospitality operations for maximized yield.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div style="max-width: 600px; margin: 0 auto; text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <h2 style="margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 1.25rem;">Have we worked together?</h2>
 
-        <!-- Cross-Continental Footprint Section (Leveraging your layout split blocks) -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="split-layout">
-                    
-                    <div class="text-block">
-                        <div class="section-header" style="text-align: left; margin-bottom: 30px;">
-                            <h2>Cross-Continental Synergy</h2>
-                            <p>Operating flawlessly across both the United Kingdom and South Africa markets.</p>
-                        </div>
-                        <ul class="check-list">
-                            <li><i class="fas fa-check-circle"></i> Overlapping operational availability vectors</li>
-                            <li><i class="fas fa-check-circle"></i> Zero-latency communications across divisions</li>
-                            <li><i class="fas fa-check-circle"></i> Deep localized compliance knowledge bases</li>
-                        </ul>
-                    </div>
-
-                    <div class="visual-block">
-                        <div class="location-item">
-                            <span class="flag">🇬🇧</span>
-                            <div class="loc-details">
-                                <h4>United Kingdom Hub</h4>
-                                <p>Corporate digital services and strategic brand acceleration.</p>
-                            </div>
-                        </div>
-                        <div class="location-item">
-                            <span class="flag">🇿🇦</span>
-                            <div class="loc-details">
-                                <h4>South Africa Hub</h4>
-                                <p>On-demand engineering operations and customer support logistics.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Trustpilot & Social Proof Review Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div style="max-width: 600px; margin: 0 auto; text-align: center; background: var(--white); padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                    <h2 style="margin-bottom: 20px; font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: var(--secondary);">Have we worked together?</h2>
-                    
                     <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
                         <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
                     </div>
-                </div>
+                    </div>
             </div>
         </section>
     </main>
 
-    <!-- Global Sticky Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-            <p style="margin-top: 10px;">
-                <a href="mailto:hello@techtixlabs.co.uk" style="color: #666; transition: var(--transition);">hello@techtixlabs.co.uk</a>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
             </p>
         </div>
     </footer>
 
-    <!-- Fixed Floating Communication Button -->
     <a href="contact.html" class="floating-cta" aria-label="Send us an email">
         <i class="fas fa-paper-plane" aria-hidden="true"></i>
     </a>
 
-    <!-- Application Script Logic -->
     <script>
-        // Mobile Responsive Toggle Control Layer
+        // Mobile Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         if(hamburger && navLinks) {
@@ -249,18 +156,10 @@
                 navLinks.classList.toggle('active'); 
                 const isExpanded = navLinks.classList.contains('active');
                 hamburger.setAttribute('aria-expanded', isExpanded);
-                
-                // Icon state synchronization
-                const icon = hamburger.querySelector('i');
-                if(isExpanded) {
-                    icon.className = "fas fa-times";
-                } else {
-                    icon.className = "fas fa-bars";
-                }
             });
         }
 
-        // Real-time International Clock Synchronizer
+        // Global Clocks Logic
         function updateClocks() {
             const options = { hour: '2-digit', minute: '2-digit', hour12: false };
             try {
@@ -269,7 +168,7 @@
                 if(ukClock) ukClock.textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
                 if(saClock) saClock.textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Africa/Johannesburg' });
             } catch (e) {
-                console.error("System clock calibration error:", e);
+                console.error("Clock error:", e);
             }
         }
         setInterval(updateClocks, 1000);
