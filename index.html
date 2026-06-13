@@ -43,18 +43,262 @@
     }
     </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     
     <style>
-        /* Floating CTA */
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0056b3;
+            --secondary: #004494;
+            --accent: #00e5ff;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- TOP BAR --- */
+        .top-bar {
+            background: var(--dark);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar i {
+            color: var(--accent);
+            margin-right: 5px;
+        }
+
+        .top-bar a:hover {
+            color: white !important;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px; /* Adjust based on your actual logo */
+            display: block;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .btn-nav {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn-nav:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            color: var(--dark);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle background glow effect */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,229,255,0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,229,255,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-outline:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* --- REVIEWS SECTION --- */
+        .reviews {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .review-card {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: white;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- FLOATING CTA --- */
         .floating-cta {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--primary, #0056b3); /* Added fallback color */
+            background: var(--primary);
             color: white !important;
             width: 60px;
             height: 60px;
@@ -62,14 +306,57 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,86,179,0.3);
             z-index: 999;
             font-size: 1.5rem;
-            transition: transform 0.3s ease, background 0.3s ease; /* Explicit transitions */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease;
         }
+
         .floating-cta:hover {
-            transform: scale(1.1);
-            background: var(--secondary, #004494); /* Added fallback color */
+            transform: scale(1.15) rotate(-10deg);
+            background: var(--secondary);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .top-bar-info {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -78,13 +365,13 @@
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-info">
-                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@techtixlabs.co.uk" style="color: inherit; text-decoration: none;">hello@techtixlabs.co.uk</a></span>
+                <span><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@techtixlabs.co.uk" style="color: inherit;">hello@techtixlabs.co.uk</a></span>
                 <span><i class="fas fa-clock" aria-hidden="true"></i> LDN: <span id="uk-time">--:--</span></span>
                 <span><i class="fas fa-clock" aria-hidden="true"></i> SA: <span id="sa-time">--:--</span></span>
             </div>
             <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+441730639318" style="color: inherit; text-decoration: none;">UK: +44 1730 639318</a></span>
-                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+27878221856" style="color: inherit; text-decoration: none;">SA: +27 87 822 1856</a></span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+441730639318" style="color: inherit;">UK: +44 1730 639318</a></span>
+                <span><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+27878221856" style="color: inherit;">SA: +27 87 822 1856</a></span>
             </div>
         </div>
     </div>
@@ -121,15 +408,14 @@
             </div>
         </section>
 
-        <section class="reviews" style="padding: 40px 0;">
+        <section class="reviews">
             <div class="container">
-                <div style="max-width: 600px; margin: 0 auto; text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <h2 style="margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 1.25rem;">Have we worked together?</h2>
-
+                <div class="review-card">
+                    <h2 style="margin-bottom: 20px;">Have we worked together?</h2>
                     <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
                         <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -137,8 +423,8 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">
-                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
+            <p style="font-size: 0.9rem; margin-top: 10px;">
+                <a href="mailto:hello@techtixlabs.co.uk" style="color: var(--text-muted);">hello@techtixlabs.co.uk</a>
             </p>
         </div>
     </footer>
@@ -156,6 +442,16 @@
                 navLinks.classList.toggle('active'); 
                 const isExpanded = navLinks.classList.contains('active');
                 hamburger.setAttribute('aria-expanded', isExpanded);
+                
+                // Toggle icon between bars and close
+                const icon = hamburger.querySelector('i');
+                if(isExpanded) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
         }
 
