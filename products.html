@@ -6,180 +6,108 @@
     <title>Products | Techtix</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .product-badge {
-            background: rgba(240, 78, 35, 0.1);
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .dashboard-mockup {
-            background: #e2e8f0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border: 1px solid #cbd5e1;
-        }
-        .mockup-header {
-            background: #334155;
-            padding: 10px 15px;
-            display: flex;
-            gap: 8px;
-        }
-        .mockup-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #64748b;
-        }
-        .mockup-dot:nth-child(1) { background: #ef4444; }
-        .mockup-dot:nth-child(2) { background: #f59e0b; }
-        .mockup-dot:nth-child(3) { background: #10b981; }
-        .mockup-body {
-            padding: 20px;
-            background: #f8fafc;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .mockup-body h3 {
-            color: #0a549d;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .mockup-body p {
-            color: #64748b;
-            font-size: 14px;
-        }
-    </style>
 </head>
-<body class="bg-light">
+<body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-info">
-                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
-            </div>
-            <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
-                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
-            </div>
-        </div>
-    </div>
-
-    <header>
+    <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="Techtix Logo">
+                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="divisions.html">Divisions</a></li>
-                <li><a href="products.html" class="active">Products</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+                <li><a href="products.html" style="color: var(--primary);">Products</a></li>
+                <li><a href="contact.html" class="btn-nav">Let's Talk</a></li>
             </ul>
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Our Products</h1>
-            <p>Enterprise-grade software solutions engineered by Techtix.</p>
-        </div>
-    </div>
+    <main>
+        <section class="hero" style="min-height: 50vh; height: 50vh;">
+            <div class="container hero-content reveal">
+                <h1 style="font-size: clamp(2.5rem, 4vw, 4rem);">Our Products</h1>
+                <p>Enterprise-grade software solutions engineered by Techtix.</p>
+            </div>
+        </section>
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="split-layout">
-                <div class="text-block">
-                    <span class="product-badge">Flagship Platform</span>
-                    <h2 style="font-size: 2.8rem; margin: 15px 0; color: var(--secondary);">OmniDeploy IT</h2>
-                    <p style="font-size: 1.1rem; color: var(--text-grey); margin-bottom: 25px;">The ultimate all-in-one IT Helpdesk, Asset Management, and Remote Deployment platform built specifically for modern MSPs and internal IT departments.</p>
-                    
-                    <ul class="check-list" style="margin-bottom: 35px;">
-                        <li><i class="fas fa-ticket-alt"></i> <strong>Smart Ticketing:</strong> Email-to-ticket via IMAP/Graph API with automated routing and CC support.</li>
-                        <li><i class="fas fa-laptop-code"></i> <strong>Asset Tracking:</strong> QR barcode scanning, physical hardware check-ins, and automated EULA e-signatures.</li>
-                        <li><i class="fas fa-server"></i> <strong>MDM Deployment:</strong> Push software packages silently to connected remote endpoints.</li>
-                        <li><i class="fas fa-users"></i> <strong>Unified Directory:</strong> Manage client companies, employee profiles, and multi-tier admin roles.</li>
-                    </ul>
-                    
-                    <a href="contact.html" class="btn btn-primary">Request a Demo</a>
-                </div>
-                
-                <div class="visual-block" style="background: transparent; box-shadow: none; padding: 0;">
-                    <div class="dashboard-mockup">
-                        <div class="mockup-header">
-                            <div class="mockup-dot"></div>
-                            <div class="mockup-dot"></div>
-                            <div class="mockup-dot"></div>
-                        </div>
-                        <div class="mockup-body">
-                            <i class="fas fa-network-wired" style="font-size: 4rem; color: var(--primary); margin-bottom: 15px;"></i>
-                            <h3>OmniDeploy IT</h3>
-                            <p>Centralized IT Infrastructure Management</p>
-                        </div>
+        <section class="section-padding" style="padding-bottom: 70px;">
+            <div class="container reveal">
+                <div class="bento-card bento-wide" onmousemove="handleMouseMove(event)" style="display: flex; flex-direction: row; gap: 40px; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <span style="background: rgba(240, 78, 35, 0.1); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">Flagship Platform</span>
+                        <h2 style="font-size: 2.5rem; margin: 15px 0;">OmniDeploy IT</h2>
+                        <p style="margin-bottom: 25px;">The ultimate all-in-one IT Helpdesk, Asset Management, and Remote Deployment platform built specifically for modern MSPs and internal IT departments.</p>
+                        <a href="contact.html" class="btn-primary">Request a Demo</a>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; text-align: center; padding: 40px; background: var(--bg-light); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);">
+                        <i class="fas fa-network-wired" style="font-size: 5rem; color: var(--primary); margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 1.5rem; color: var(--text-main);">Centralized IT</h3>
+                        <p>Infrastructure Management</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-padding" style="background: #fff;">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose OmniDeploy?</h2>
-                <p>Designed to completely eliminate software bloat by bringing your core IT operations under one roof.</p>
+        <section class="section-padding" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header reveal delay-1">
+                    <h2>Why Choose OmniDeploy?</h2>
+                </div>
+                <div class="bento-grid" style="grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto;">
+                    <div class="bento-card reveal delay-1" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Licensing</h3>
+                        <p>Cryptographically signed HMAC-SHA256 license keys ensure your platform modules are secure and tamper-proof.</p>
+                    </div>
+                    <div class="bento-card reveal delay-2" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Lightning Fast</h3>
+                        <p>Built with a lightweight footprint to ensure ticket updates, asset searches, and dashboard metrics load instantly.</p>
+                    </div>
+                    <div class="bento-card reveal delay-1" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-book"></i>
+                        <h3>Knowledge Base</h3>
+                        <p>Integrated FAQ and Knowledge Base system allows you to publish self-service articles directly to your end-users.</p>
+                    </div>
+                    <div class="bento-card reveal delay-2" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <h3>Canned Responses</h3>
+                        <p>Save your technicians time with dynamic canned responses that automatically inject user and ticket variables.</p>
+                    </div>
+                </div>
             </div>
-            <div class="grid-4">
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Secure Licensing</h3>
-                    <p>Cryptographically signed HMAC-SHA256 license keys ensure your platform modules are secure and tamper-proof.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-bolt"></i></div>
-                    <h3>Lightning Fast</h3>
-                    <p>Built with a lightweight footprint to ensure ticket updates, asset searches, and dashboard metrics load instantly.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-book"></i></div>
-                    <h3>Knowledge Base</h3>
-                    <p>Integrated FAQ and Knowledge Base system allows you to publish self-service articles directly to your end-users.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
-                    <h3>Canned Responses</h3>
-                    <p>Save your technicians time with dynamic canned responses that automatically inject user and ticket variables.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">
-                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
-            </p>
-        </div>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        function handleMouseMove(e) {
+            const target = e.currentTarget;
+            const rect = target.getBoundingClientRect();
+            target.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            target.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        }
+
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.style.transform = (lastScrollY < window.scrollY && window.scrollY > 100) ? 'translateY(-100%)' : 'translateY(0)';
+            lastScrollY = window.scrollY;
+        });
     </script>
 </body>
 </html>

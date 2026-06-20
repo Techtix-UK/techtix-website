@@ -6,80 +6,113 @@
     <title>Contact Us | Techtix</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Form specific overrides to match the dark hero / premium vibe */
+        input, select, textarea {
+            width: 100%;
+            padding: 18px;
+            background: var(--bg-light);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-family: inherit;
+            color: var(--text-main);
+            transition: var(--transition-fast);
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(240, 78, 35, 0.1);
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-info">
-                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
-            </div>
-            <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
-                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
-            </div>
-        </div>
-    </div>
-
-    <header>
+    <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="Techtix Logo">
+                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="divisions.html">Divisions</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html" class="active" style="color: var(--primary);">Contact Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html" class="btn-nav">Let's Talk</a></li>
             </ul>
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Let's Connect</h1>
-            <p>Drop us a message below and our team will get back to you shortly.</p>
-        </div>
-    </div>
+    <main>
+        <section class="hero" style="min-height: 50vh; height: 50vh;">
+            <div class="container hero-content reveal">
+                <h1 style="font-size: clamp(2.5rem, 4vw, 4rem);">Let's Connect</h1>
+                <p>Drop us a message below and our team will get back to you shortly.</p>
+            </div>
+        </section>
 
-    <section class="section-padding">
-        <div class="container">
-            <form action="https://formspree.io/f/mbdzkbpp" method="POST">
-                <div class="form-group">
-                    <input type="text" name="Full Name" placeholder="Full Name" required>
-                    <input type="email" name="Email Address" placeholder="Email Address" required>
+        <section class="section-padding">
+            <div class="container" style="max-width: 800px;">
+                <div class="bento-card reveal delay-1" onmousemove="handleMouseMove(event)" style="padding: 60px;">
+                    <form action="https://formspree.io/f/mbdzkbpp" method="POST">
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px;">
+                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Full Name</label>
+                                <input type="text" name="Full Name" required>
+                            </div>
+                            <div style="flex: 1; min-width: 250px;">
+                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Email Address</label>
+                                <input type="email" name="Email Address" required>
+                            </div>
+                        </div>
+                        
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Service Requested</label>
+                        <select name="Service Requested" required>
+                            <option value="" disabled selected>Select a core service...</option>
+                            <option value="Tech">Tech Support</option>
+                            <option value="Marketing">Marketing Agency</option>
+                            <option value="Web">Web Design</option>
+                            <option value="Airbnb">Remote Airbnb Management</option>
+                            <option value="Multiple">Multiple Services</option>
+                        </select>
+                        
+                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Message</label>
+                        <textarea name="Message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Send Message</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <select name="Service Requested" required>
-                        <option value="" disabled selected>Which service are you interested in?</option>
-                        <option value="Tech">Tech Support</option>
-                        <option value="Marketing">Marketing Agency</option>
-                        <option value="Web">Web Design</option>
-                        <option value="Airbnb">Remote Airbnb Management</option>
-                        <option value="Multiple">Multiple Services</option>
-                    </select>
-                </div>
-                <textarea name="Message" rows="5" placeholder="How can we help you power your tomorrow?" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        // Mobile Menu Toggle Only
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        function handleMouseMove(e) {
+            const target = e.currentTarget;
+            const rect = target.getBoundingClientRect();
+            target.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            target.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        }
+
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.style.transform = (lastScrollY < window.scrollY && window.scrollY > 100) ? 'translateY(-100%)' : 'translateY(0)';
+            lastScrollY = window.scrollY;
+        });
     </script>
 </body>
 </html>

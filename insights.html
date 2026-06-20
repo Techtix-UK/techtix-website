@@ -6,136 +6,75 @@
     <title>Insights | Techtix Labs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .blog-meta {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-            text-transform: uppercase;
-        }
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            color: var(--secondary);
-            font-weight: 700;
-            transition: var(--transition);
-        }
-        .read-more:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        .floating-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: white !important;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            z-index: 999;
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-    </style>
 </head>
-<body class="bg-light">
+<body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-info">
-                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
-                <span><i class="fas fa-clock"></i> LDN: <span id="uk-time">--:--</span></span>
-                <span><i class="fas fa-clock"></i> SA: <span id="sa-time">--:--</span></span>
-            </div>
-            <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
-                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
-            </div>
-        </div>
-    </div>
-
-    <header>
+    <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="Techtix Logo">
+                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="divisions.html">Divisions</a></li>
-                <li><a href="insights.html" class="active" style="color: var(--primary);">Insights</a></li>
-                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+                <li><a href="insights.html" style="color: var(--primary);">Insights</a></li>
+                <li><a href="contact.html" class="btn-nav">Let's Talk</a></li>
             </ul>
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Techtix Insights</h1>
-            <p>Expert perspectives on Tech, Marketing, and Global Management.</p>
-        </div>
-    </div>
-
-    <section class="section-padding">
-        <div class="container">
-            <div class="grid-4" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                
-                <div class="card" style="text-align: left;">
-                    <span class="blog-meta">Airbnb Management</span>
-                    <h3>The "Follow the Sun" Strategy</h3>
-                    <p>How we provide 24/7 guest support for UK properties by leveraging our South African division.</p>
-                    <a href="#" class="read-more">Read Article →</a>
-                </div>
-
+    <main>
+        <section class="hero" style="min-height: 50vh; height: 50vh;">
+            <div class="container hero-content reveal">
+                <h1 style="font-size: clamp(2.5rem, 4vw, 4rem);">Insights</h1>
+                <p>Expert perspectives on Tech, Marketing, and Global Management.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-padding" style="background: #fff; border-top: 1px solid #eee;">
-        <div class="container" style="text-align: center;">
-            <h3 style="margin-bottom: 20px;">Helping us power tomorrow?</h3>
-            <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="68ecfb56eaeab4d0f7ba0b52" data-style-height="52px" data-style-width="100%" data-token="7cf862d5-313e-45c3-a0c4-1ce4416ccc2e">
-              <a href="https://www.trustpilot.com/review/techtixlabs.co.uk" target="_blank" rel="noopener">Trustpilot</a>
+        <section class="section-padding">
+            <div class="container">
+                <div class="bento-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    
+                    <a href="#" class="bento-card reveal delay-1" onmousemove="handleMouseMove(event)" style="color: inherit;">
+                        <span style="color: var(--primary); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: block;">Airbnb Management</span>
+                        <h3>The "Follow the Sun" Strategy</h3>
+                        <p style="margin-bottom: 20px;">How we provide 24/7 guest support for UK properties by leveraging our South African division.</p>
+                        <strong style="color: var(--primary); font-size: 0.9rem;">Read Article →</strong>
+                    </a>
+                    
+                    </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px;">
-                <a href="mailto:hello@techtixlabs.co.uk" style="color: #888;">hello@techtixlabs.co.uk</a>
-            </p>
-        </div>
-    </footer>
-
-    <a href="contact.html" class="floating-cta">
-        <i class="fas fa-paper-plane"></i>
-    </a>
-
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
 
-        function updateClocks() {
-            const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-            document.getElementById('uk-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
-            document.getElementById('sa-time').textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Africa/Johannesburg' });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        function handleMouseMove(e) {
+            const target = e.currentTarget;
+            const rect = target.getBoundingClientRect();
+            target.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            target.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         }
-        setInterval(updateClocks, 1000);
-        updateClocks();
+
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.style.transform = (lastScrollY < window.scrollY && window.scrollY > 100) ? 'translateY(-100%)' : 'translateY(0)';
+            lastScrollY = window.scrollY;
+        });
     </script>
 </body>
 </html>

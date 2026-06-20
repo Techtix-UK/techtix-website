@@ -9,81 +9,95 @@
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-info">
-                <span><i class="fas fa-envelope"></i> hello@techtixlabs.co.uk</span>
-                <span><i class="fas fa-clock"></i> Cross-Continental Support</span>
-            </div>
-            <div class="top-bar-info">
-                <span><i class="fas fa-phone-alt"></i> UK: +44 1730 639318</span>
-                <span><i class="fas fa-phone-alt"></i> SA: +27 87 822 1856</span>
-            </div>
-        </div>
-    </div>
-
-    <header>
+    <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="Techtix Logo">
+                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html" style="color: var(--primary);">Services</a></li>
                 <li><a href="divisions.html">Divisions</a></li>
-                <li><a href="insights.html">Insights</a></li>
-                <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html" class="btn-nav">Let's Talk</a></li>
             </ul>
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>Our Capabilities</h1>
-            <p>We manage your digital footprint so you can manage your growth.</p>
-        </div>
-    </div>
+    <main>
+        <section class="hero" style="min-height: 50vh; height: 50vh;">
+            <div class="container hero-content reveal">
+                <h1 style="font-size: clamp(2.5rem, 4vw, 4rem);">Our Capabilities</h1>
+                <p>We manage your digital footprint so you can manage your growth.</p>
+            </div>
+        </section>
 
-    <section class="section-padding">
-        <div class="container">
-            <div class="grid-4">
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Tech Support</h3>
-                    <p>Downtime costs money. Our proactive tech support ensures your infrastructure is secure, optimized, and running flawlessly.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-                    <h3>Marketing Agency</h3>
-                    <p>We build brands that people remember through digital strategy, SEO, and data-driven performance marketing.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-code"></i></div>
-                    <h3>Web Design</h3>
-                    <p>We design and build stunning, responsive websites that perfectly reflect your brand and drive real conversions.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i class="fas fa-house-signal"></i></div>
-                    <h3>Remote Airbnb</h3>
-                    <p>We handle the entirely digital side of hosting—including dynamic pricing, listing optimization, and 24/7 guest communication.</p>
+        <section class="section-padding">
+            <div class="container">
+                <div class="bento-grid">
+                    <div class="bento-card bento-large reveal delay-1" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h3>Performance Marketing Agency</h3>
+                            <p>We don't just run ads. We build brands that people remember through elite digital strategy, technical SEO, and data-driven performance marketing tailored for high-growth sectors.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-wide reveal delay-2" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <h3>Proactive Tech Support</h3>
+                            <p>Downtime costs money. Our proactive tech support ensures your infrastructure is secure, optimized, and running flawlessly 24/7 across multiple continents.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-square reveal delay-1" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h3>Web Design</h3>
+                            <p>Stunning, modern web experiences built to convert.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card bento-square reveal delay-2" onmousemove="handleMouseMove(event)">
+                        <i class="fas fa-house-signal"></i>
+                        <div>
+                            <h3>Remote Airbnb</h3>
+                            <p>Dynamic pricing, listing optimization, and 24/7 guest communications.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Techtix. All Rights Reserved.</p>
-        </div>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        function handleMouseMove(e) {
+            const target = e.currentTarget;
+            const rect = target.getBoundingClientRect();
+            target.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            target.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        }
+
+        let lastScrollY = window.scrollY;
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.style.transform = (lastScrollY < window.scrollY && window.scrollY > 100) ? 'translateY(-100%)' : 'translateY(0)';
+            lastScrollY = window.scrollY;
+        });
     </script>
 </body>
 </html>
