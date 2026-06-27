@@ -9,7 +9,7 @@
     --surface-dark: #18181b;
     --surface-light: #ffffff;
     --text-main: #09090b;
-    --text-muted: #71717a;
+    --text-muted: #52525b; /* Darkened from #71717a for better contrast */
     
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --transition-slow: 700ms var(--ease-out-expo);
@@ -40,6 +40,13 @@ h1, h2, h3, h4 {
 
 a { text-decoration: none; }
 ul { list-style: none; }
+
+/* Global Accessibility Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
 
 .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 
@@ -138,10 +145,10 @@ header {
 .btn-primary {
     display: inline-block;
     background: var(--primary);
-    color: #fff;
+    color: var(--bg-dark); /* Changed from #fff for WCAG contrast */
     padding: 18px 40px;
     border-radius: 100px;
-    font-weight: 500;
+    font-weight: 600; /* Increased weight for readability */
     box-shadow: 0 10px 30px -10px var(--primary);
     transition: all var(--transition-fast);
 }
@@ -218,7 +225,19 @@ header {
 }
 
 @media (max-width: 768px) {
-    .bento-grid { grid-template-columns: 1fr; grid-auto-rows: minmax(280px, auto); }
-    .bento-large, .bento-wide, .bento-square { grid-column: span 1; grid-row: auto; }
+    .bento-grid { 
+        grid-template-columns: 1fr; 
+        grid-auto-rows: minmax(280px, auto); 
+    }
+    .bento-large, .bento-wide, .bento-square { 
+        grid-column: span 1; 
+        grid-row: auto; 
+    }
     .nav-links { display: none; }
+    
+    /* Elevate the most important card on mobile to restore hierarchy */
+    .bento-large {
+        border: 2px solid var(--primary);
+        background: linear-gradient(to bottom right, var(--surface-light), rgba(240, 78, 35, 0.05));
+    }
 }

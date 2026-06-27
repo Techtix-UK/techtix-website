@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techtix | Powering Innovation</title>
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Techtix Premium CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +12,6 @@
     <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <!-- If you have a white/dark logo variant, use it here based on background -->
                 <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
             <ul class="nav-links">
@@ -28,18 +25,16 @@
     </header>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="hero">
             <div class="container hero-content reveal">
                 <h1>Powering Innovation.<br><span>Delivering Tomorrow.</span></h1>
                 <p>Your cross-continental partner for engineering digital growth. We build, support, and scale operations globally.</p>
                 <div style="margin-top: 30px;">
-                    <a href="contact.html" class="btn-primary">Start a Project</a>
+                    <a href="contact.html" class="btn-primary">Scale Your Growth Now</a>
                 </div>
             </div>
         </section>
 
-        <!-- BENTO GRID CAPABILITIES -->
         <section class="section-padding">
             <div class="container">
                 <div class="section-header reveal">
@@ -48,7 +43,6 @@
                 </div>
 
                 <div class="bento-grid">
-                    <!-- Large Feature -->
                     <div class="bento-card bento-large reveal delay-1" onmousemove="handleMouseMove(event)">
                         <i class="fas fa-network-wired"></i>
                         <div>
@@ -57,7 +51,6 @@
                         </div>
                     </div>
 
-                    <!-- Wide Feature -->
                     <div class="bento-card bento-wide reveal delay-2" onmousemove="handleMouseMove(event)">
                         <i class="fas fa-chart-line"></i>
                         <div>
@@ -66,7 +59,6 @@
                         </div>
                     </div>
 
-                    <!-- Square Feature 1 -->
                     <div class="bento-card bento-square reveal delay-1" onmousemove="handleMouseMove(event)">
                         <i class="fas fa-shield-alt"></i>
                         <div>
@@ -75,7 +67,6 @@
                         </div>
                     </div>
 
-                    <!-- Square Feature 2 -->
                     <div class="bento-card bento-square reveal delay-2" onmousemove="handleMouseMove(event)">
                         <i class="fas fa-house-signal"></i>
                         <div>
@@ -88,13 +79,12 @@
         </section>
     </main>
 
-    <!-- Lenis Smooth Scroll Script -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
         // 1. Initialize High-End Smooth Scrolling
         const lenis = new Lenis({
             duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom Apple-like easing
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
             direction: 'vertical',
             gestureDirection: 'vertical',
             smooth: true,
