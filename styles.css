@@ -1,21 +1,28 @@
-/* --- TECHTIX: GOOGLE MINIMALIST ARCHITECTURE --- */
+/* --- TECHTIX: GOOGLE MINIMALIST ARCHITECTURE V2 --- */
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    --primary: #1a73e8; /* Swapped to a Google-esque trust blue, or keep your #f04e23 */
+    /* Colors */
+    --primary: #1a73e8; 
     --bg-main: #ffffff;
-    --bg-secondary: #f8f9fa; /* Google's classic light gray */
-    --text-main: #202124; /* Google's off-black */
-    --text-muted: #5f6368; /* Google's secondary text */
-    --border-color: #dadce0; /* Google's standard outline */
+    --bg-secondary: #f8f9fa; 
+    --text-main: #202124; 
+    --text-muted: #5f6368; 
+    --border-color: #dadce0; 
     
+    /* Strict Spacing System */
+    --space-sm: 8px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 80px;
+
     --transition-fast: 200ms ease-in-out;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Inter', sans-serif; /* Inter is a perfect, highly readable font */
+    font-family: 'Inter', sans-serif; 
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
@@ -55,7 +62,7 @@ header {
     height: 72px;
 }
 
-.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links { display: flex; align-items: center; gap: var(--space-md); }
 .nav-links a {
     color: var(--text-muted);
     font-weight: 500;
@@ -64,18 +71,20 @@ header {
 }
 .nav-links a:hover { color: var(--text-main); }
 
+/* Upgraded Nav CTA for prominence */
 .btn-nav {
-    background: var(--bg-secondary);
-    color: var(--text-main) !important;
+    background: #e8f0fe; /* Light Google blue */
+    color: var(--primary) !important;
     padding: 10px 24px;
     border-radius: 100px;
-    border: 1px solid var(--border-color);
+    border: none;
+    font-weight: 600;
 }
-.btn-nav:hover { background: #f1f3f4; }
+.btn-nav:hover { background: #d2e3fc; }
 
 /* --- FLAT, HIGH-CONTRAST HERO --- */
 .hero {
-    padding: 120px 0 80px;
+    padding: 120px 0 var(--space-xl);
     background-color: var(--bg-main);
     text-align: center;
 }
@@ -83,7 +92,7 @@ header {
 .hero h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
     line-height: 1.1;
-    margin-bottom: 24px;
+    margin-bottom: var(--space-md);
     font-weight: 700;
 }
 
@@ -91,10 +100,10 @@ header {
     font-size: 1.25rem;
     color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto var(--space-lg);
 }
 
-/* Google-style flat button */
+/* Google-style flat primary button */
 .btn-primary {
     display: inline-block;
     background: var(--primary);
@@ -111,33 +120,41 @@ header {
 }
 
 /* --- GOOGLE WORKSPACE STYLE CARDS --- */
-.section-padding { padding: 80px 0; }
-.section-header { margin-bottom: 48px; text-align: center; }
+.section-padding { padding: var(--space-xl) 0; }
+.section-header { margin-bottom: var(--space-lg); text-align: center; }
 .section-header h2 { font-size: 2.5rem; margin-bottom: 16px; }
 
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: var(--space-md);
 }
 
 .bento-card {
     background: var(--bg-main);
-    border-radius: 12px; /* Less bubbly */
+    border-radius: 12px; 
     padding: 32px;
-    border: 1px solid var(--border-color); /* Crisp outline instead of shadow */
+    border: 1px solid var(--border-color); 
     display: flex;
     flex-direction: column;
     transition: border var(--transition-fast);
 }
 
-.bento-card:hover { 
-    border-color: var(--primary); /* Simple, clear hover state */
-}
+.bento-card:hover { border-color: var(--primary); }
 
 .bento-card i { font-size: 1.75rem; color: var(--primary); margin-bottom: 20px; }
 .bento-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
 .bento-card p { color: var(--text-muted); font-size: 1rem; }
+
+/* New CTA Block Styles */
+.cta-block {
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    padding: var(--space-xl) 5%;
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    border: 1px solid var(--border-color);
+}
 
 @media (max-width: 768px) {
     .bento-grid { grid-template-columns: 1fr; }
