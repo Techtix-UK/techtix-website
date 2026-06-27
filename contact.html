@@ -7,36 +7,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Form specific overrides to match the dark hero / premium vibe */
+        /* Google Material Design Style Inputs */
         input, select, textarea {
             width: 100%;
-            padding: 18px;
-            background: var(--bg-light);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 12px;
-            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: var(--space-md);
             font-family: inherit;
+            font-size: 1rem;
             color: var(--text-main);
-            transition: var(--transition-fast);
+            transition: all var(--transition-fast);
             outline: none;
         }
+        
         input:focus, select:focus, textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(240, 78, 35, 0.1);
+            box-shadow: inset 0 0 0 1px var(--primary);
         }
         
-        /* Highlights invalid fields, but only after the user starts typing */
+        /* Validation States */
         input:not(:placeholder-shown):invalid,
         textarea:not(:placeholder-shown):invalid,
         select:invalid:not(:focus) {
-            border-color: #ef4444; 
-            background-color: #fef2f2;
+            border-color: #d93025; /* Google error red */
         }
-
-        /* Confirms valid inputs */
         input:not(:placeholder-shown):valid,
         textarea:not(:placeholder-shown):valid {
-            border-color: #22c55e; 
+            border-color: #188038; /* Google success green */
+        }
+        
+        label {
+            display: block; 
+            font-size: 0.875rem; 
+            font-weight: 500; 
+            margin-bottom: 8px;
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -45,7 +52,7 @@
     <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
+                <strong style="font-size: 1.5rem; letter-spacing: -1px; color: var(--text-main);">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -58,29 +65,29 @@
     </header>
 
     <main>
-        <section class="hero" style="min-height: 50vh; height: 50vh;">
-            <div class="container hero-content reveal">
-                <h1 style="font-size: clamp(2.5rem, 4vw, 4rem);">Let's Connect</h1>
+        <section class="hero" style="padding-bottom: var(--space-md);">
+            <div class="container hero-content">
+                <h1>Let's Connect</h1>
                 <p>Drop us a message below and our team will get back to you shortly.</p>
             </div>
         </section>
 
-        <section class="section-padding">
+        <section class="section-padding" style="padding-top: 0;">
             <div class="container" style="max-width: 800px;">
-                <div class="bento-card reveal delay-1" onmousemove="handleMouseMove(event)" style="padding: 60px;">
+                <div class="bento-card">
                     <form action="https://formspree.io/f/mbdzkbpp" method="POST">
-                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
                             <div style="flex: 1; min-width: 250px;">
-                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Full Name</label>
+                                <label>Full Name</label>
                                 <input type="text" name="Full Name" placeholder=" " required>
                             </div>
                             <div style="flex: 1; min-width: 250px;">
-                                <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Email Address</label>
+                                <label>Email Address</label>
                                 <input type="email" name="Email Address" placeholder=" " required>
                             </div>
                         </div>
                         
-                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Service Requested</label>
+                        <label>Service Requested</label>
                         <select name="Service Requested" required>
                             <option value="" disabled selected>Select a core service...</option>
                             <option value="Tech">Tech Support</option>
@@ -90,41 +97,25 @@
                             <option value="Multiple">Multiple Services</option>
                         </select>
                         
-                        <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Message</label>
+                        <label>Message</label>
                         <textarea name="Message" rows="5" placeholder="Tell us about your project..." required></textarea>
                         
-                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">Request Your Strategy Session</button>
+                        <button type="submit" class="btn-primary" style="width: 100%; margin-top: var(--space-sm); cursor: pointer;">Request Your Strategy Session</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOnScroll = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
-            });
-        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-        revealElements.forEach(el => revealOnScroll.observe(el));
-
-        function handleMouseMove(e) {
-            const target = e.currentTarget;
-            const rect = target.getBoundingClientRect();
-            target.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-            target.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-        }
-
         let lastScrollY = window.scrollY;
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
-            header.style.transform = (lastScrollY < window.scrollY && window.scrollY > 100) ? 'translateY(-100%)' : 'translateY(0)';
+            if (lastScrollY < window.scrollY && window.scrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
             lastScrollY = window.scrollY;
         });
     </script>
