@@ -12,7 +12,7 @@
     <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <strong style="font-size: 1.5rem; letter-spacing: -1px;">TECHTIX<span style="color: var(--primary);">.</span></strong>
+                <strong style="font-size: 1.5rem; letter-spacing: -1px; color: var(--text-main);">TECHTIX<span style="color: var(--primary);">.</span></strong>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -26,104 +26,54 @@
 
     <main>
         <section class="hero">
-            <div class="container hero-content reveal">
-                <h1>Powering Innovation.<br><span>Delivering Tomorrow.</span></h1>
-                <p style="line-height: 1.6; margin-bottom: 40px;">Your cross-continental partner for engineering digital growth. We build, support, and scale operations globally.</p>
-                <div>
-                    <a href="contact.html" class="btn-primary" style="color: #09090b; font-weight: 600;">Book Your Strategy Session</a>
+            <div class="container hero-content">
+                <h1>Powering Innovation.<br>Delivering Tomorrow.</h1>
+                <p>Your cross-continental partner for engineering digital growth. We build, support, and scale operations globally.</p>
+                <div style="margin-top: 32px;">
+                    <a href="contact.html" class="btn-primary">Book Your Strategy Session</a>
                 </div>
             </div>
         </section>
 
         <section class="section-padding">
             <div class="container">
-                <div class="section-header reveal">
+                <div class="section-header">
                     <h2>Our Capabilities</h2>
-                    <p style="line-height: 1.6;">We manage your entire digital footprint so you can focus entirely on scaling your growth.</p>
+                    <p style="color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto;">We manage your entire digital footprint so you can focus entirely on scaling your growth.</p>
                 </div>
 
                 <div class="bento-grid">
-                    <div class="bento-card bento-large reveal delay-1" onmousemove="handleMouseMove(event)">
+                    <div class="bento-card">
                         <i class="fas fa-network-wired"></i>
-                        <div>
-                            <h3>OmniDeploy IT Platform</h3>
-                            <p style="line-height: 1.6;">Our flagship enterprise solution. The ultimate all-in-one IT Helpdesk, Asset Management, and Remote Deployment platform built specifically for modern MSPs and internal IT departments.</p>
-                        </div>
+                        <h3>OmniDeploy IT Platform</h3>
+                        <p>Our flagship enterprise solution. The ultimate all-in-one IT Helpdesk, Asset Management, and Remote Deployment platform built specifically for modern MSPs and internal IT departments.</p>
                     </div>
 
-                    <div class="bento-card bento-wide reveal delay-2" onmousemove="handleMouseMove(event)">
+                    <div class="bento-card">
                         <i class="fas fa-chart-line"></i>
-                        <div>
-                            <h3>Performance Marketing</h3>
-                            <p style="line-height: 1.6;">We build brands that people remember through elite digital strategy, technical SEO, and data-driven performance marketing.</p>
-                        </div>
+                        <h3>Performance Marketing</h3>
+                        <p>We build brands that people remember through elite digital strategy, technical SEO, and data-driven performance marketing.</p>
                     </div>
 
-                    <div class="bento-card bento-square reveal delay-1" onmousemove="handleMouseMove(event)">
+                    <div class="bento-card">
                         <i class="fas fa-shield-alt"></i>
-                        <div>
-                            <h3>Tech Support</h3>
-                            <p style="line-height: 1.6;">Proactive, cross-continental infrastructure management.</p>
-                        </div>
+                        <h3>Tech Support</h3>
+                        <p>Proactive, cross-continental infrastructure management ensuring your systems are secure and optimized 24/7.</p>
                     </div>
 
-                    <div class="bento-card bento-square reveal delay-2" onmousemove="handleMouseMove(event)">
+                    <div class="bento-card">
                         <i class="fas fa-house-signal"></i>
-                        <div>
-                            <h3>Remote Airbnb</h3>
-                            <p style="line-height: 1.6;">Dynamic pricing, listing optimization, and 24/7 guest communication.</p>
-                        </div>
+                        <h3>Remote Airbnb</h3>
+                        <p>Dynamic pricing, listing optimization, and 24/7 guest communication to maximize your rental yields.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script>
-        // 1. Initialize High-End Smooth Scrolling
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // 2. Scroll Reveal Animations (Intersection Observer)
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-
-        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            });
-        }, revealOptions);
-
-        revealElements.forEach(el => revealOnScroll.observe(el));
-
-        // 3. Vercel-style Mouse Hover effect for Bento Cards
-        function handleMouseMove(e) {
-            const target = e.currentTarget;
-            const rect = target.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            target.style.setProperty('--mouse-x', `${x}px`);
-            target.style.setProperty('--mouse-y', `${y}px`);
-        }
-
-        // 4. Hide/Show Header on Scroll
+        // Clean, lightweight script solely for hiding the header on downward scroll 
+        // to maximize screen real estate (a very common Google pattern).
         let lastScrollY = window.scrollY;
         const header = document.getElementById('main-header');
         
