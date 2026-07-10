@@ -1,22 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Techtix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --ink: #0a1120;
+            --panel: #111b2e;
+            --panel-hi: #16233a;
+            --border: #223049;
+            --fog: #8d9ab3;
+            --paper: #eef1f6;
+            --cyan: #55dbe2;
+            --amber: #ffb454;
+            --radius: 14px;
+            --max: 1140px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--ink);
+            color: var(--paper);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--cyan);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ---------- header ---------- */
+
+        #main-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 17, 32, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: transform 0.35s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+        }
+
+        .logo strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            color: var(--paper);
+        }
+
+        .logo strong span {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--fog);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--paper);
+        }
+
+        .nav-links a.active {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .btn-nav {
+            padding: 10px 20px !important;
+            border: 1px solid var(--cyan);
+            border-radius: 8px;
+            color: var(--cyan) !important;
+        }
+
+        .btn-nav:hover {
+            background: var(--cyan);
+            color: var(--ink) !important;
+        }
+
+        /* ---------- page hero ---------- */
+
+        .page-hero {
+            position: relative;
+            padding: 88px 0 56px;
+            background-image:
+                radial-gradient(circle at 18% 20%, rgba(85, 219, 226, 0.10), transparent 40%),
+                radial-gradient(circle at 85% 0%, rgba(255, 180, 84, 0.07), transparent 45%),
+                repeating-linear-gradient(to right, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 64px),
+                repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 64px);
+        }
+
+        .page-hero .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.06em;
+            color: var(--amber);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.1rem, 4.5vw, 2.9rem);
+            color: var(--paper);
+            margin-bottom: 14px;
+        }
+
+        .page-hero p {
+            color: var(--fog);
+            font-size: 1.08rem;
+            max-width: 480px;
+        }
+
+        /* ---------- bento grid ---------- */
+
+        .section-padding {
+            padding: 0 0 96px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .bento-card {
+            position: relative;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .bento-card::before,
+        .bento-card::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .bento-card::before {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid var(--cyan);
+            border-left: 2px solid var(--cyan);
+            border-top-left-radius: 6px;
+        }
+
+        .bento-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid var(--cyan);
+            border-right: 2px solid var(--cyan);
+            border-bottom-right-radius: 6px;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .bento-card:hover::before,
+        .bento-card:hover::after {
+            opacity: 1;
+        }
+
+        .card-code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--amber);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .bento-card i {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .bento-card h3 {
+            font-size: 1.2rem;
+            color: var(--paper);
+            margin-bottom: 10px;
+        }
+
+        .bento-card p {
+            color: var(--fog);
+            font-size: 0.98rem;
+        }
+
+        /* core services: full-width, more presence */
+        .bento-card--core {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: start;
+            gap: 24px;
+            padding: 36px;
+        }
+
+        .bento-card--core i {
+            margin-bottom: 0;
+            font-size: 1.7rem;
+        }
+
+        .bento-card--core .card-code {
+            grid-column: 2;
+            margin-bottom: 8px;
+        }
+
+        .bento-card--core h3 {
+            grid-column: 2;
+            font-size: 1.35rem;
+        }
+
+        .bento-card--core p {
+            grid-column: 2;
+            max-width: 620px;
+        }
+
+        /* add-on services: compact */
+        .bento-card--add {
+            padding: 26px;
+        }
+
+        .bento-card--add i {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .bento-card--add h3 {
+            font-size: 1.05rem;
+        }
+
+        .bento-card--add p {
+            font-size: 0.92rem;
+        }
+
+        /* ---------- cta ---------- */
+
+        .cta-block {
+            position: relative;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 56px;
+            margin-bottom: 96px;
+            overflow: hidden;
+        }
+
+        .cta-block::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(85, 219, 226, 0.10), transparent 55%);
+            pointer-events: none;
+        }
+
+        .cta-prompt {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--cyan);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-block h2 {
+            font-size: clamp(1.7rem, 3vw, 2.1rem);
+            color: var(--paper);
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .cta-block p {
+            color: var(--fog);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 480px;
+            position: relative;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--ink);
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 0.98rem;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(85, 219, 226, 0.25);
+        }
+
+        /* ---------- footer ---------- */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+        }
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.88rem;
+            color: var(--fog);
+        }
+
+        .footer-links a:hover {
+            color: var(--paper);
+        }
+
+        .footer-copy {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--fog);
+        }
+
+        /* ---------- responsive ---------- */
+
+        @media (max-width: 860px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card--core {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card--core .card-code,
+            .bento-card--core h3,
+            .bento-card--core p {
+                grid-column: 1;
+            }
+
+            .bento-card--core i {
+                margin-bottom: 16px;
+            }
+
+            .cta-block {
+                padding: 36px 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <strong style="font-size: 1.5rem; letter-spacing: -1px; color: var(--text-main);">TECHTIX<span style="color: var(--primary);">.</span></strong>
+                <strong>TECHTIX<span>.</span></strong>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" style="color: var(--text-main); font-weight: 600;">Services</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="divisions.html">Divisions</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="contact.html" class="btn-nav">Let's Talk</a></li>
@@ -25,51 +463,78 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container hero-content">
+
+        <section class="page-hero">
+            <div class="container">
+                <span class="eyebrow">Full capability set</span>
                 <h1>Our Capabilities</h1>
-                <p>We manage your digital footprint so you can manage your growth.</p>
+                <p>We manage your digital footprint end to end &mdash; two core disciplines we run deep, plus the
+                    add-ons that keep everything else off your plate.</p>
             </div>
         </section>
 
-        <section class="section-padding" style="padding-top: 0;">
+        <section class="section-padding">
             <div class="container">
                 <div class="bento-grid">
-                    <div class="bento-card">
+
+                    <div class="bento-card bento-card--core">
                         <i class="fas fa-chart-line"></i>
+                        <span class="card-code">SRV / GROWTH — CORE</span>
                         <h3>Performance Marketing Agency</h3>
-                        <p>We don't just run ads. We build brands that people remember through elite digital strategy, technical SEO, and data-driven performance marketing tailored for high-growth sectors.</p>
+                        <p>We don't just run ads. We build brands people remember through elite digital strategy,
+                            technical SEO, and data-driven performance marketing tailored for high-growth sectors.</p>
                     </div>
 
-                    <div class="bento-card">
+                    <div class="bento-card bento-card--core">
                         <i class="fas fa-laptop-code"></i>
+                        <span class="card-code">SRV / SUPPORT — CORE</span>
                         <h3>Proactive Tech Support</h3>
-                        <p>Downtime costs money. Our proactive tech support ensures your infrastructure is secure, optimized, and running flawlessly 24/7 across multiple continents.</p>
+                        <p>Downtime costs money. Our proactive tech support keeps your infrastructure secure, optimized,
+                            and running flawlessly 24/7 across multiple continents.</p>
                     </div>
 
-                    <div class="bento-card">
+                    <div class="bento-card bento-card--add">
                         <i class="fas fa-code"></i>
+                        <span class="card-code">SRV / WEB — ADD-ON</span>
                         <h3>Web Design</h3>
-                        <p>Stunning, modern web experiences built to convert.</p>
+                        <p>Modern web experiences built to convert.</p>
                     </div>
 
-                    <div class="bento-card">
+                    <div class="bento-card bento-card--add">
                         <i class="fas fa-house-signal"></i>
+                        <span class="card-code">SRV / HOSPITALITY — ADD-ON</span>
                         <h3>Remote Airbnb</h3>
-                        <p>Dynamic pricing, listing optimization, and 24/7 guest communications.</p>
+                        <p>Dynamic pricing, listing optimization, and 24/7 guest communication.</p>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <section class="container">
             <div class="cta-block">
-                <h2 style="font-size: 2rem; margin-bottom: 16px;">Ready to scale your operations?</h2>
-                <p style="color: var(--text-muted); font-size: 1.125rem; margin-bottom: 32px;">Connect with our global team today and discover how Techtix can accelerate your digital growth.</p>
+                <div class="cta-prompt">&gt; ready_to_scale --yes</div>
+                <h2>Ready to scale your operations?</h2>
+                <p>Connect with our global team today and discover how Techtix can accelerate your digital growth.</p>
                 <a href="contact.html" class="btn-primary">Get Started Now</a>
             </div>
         </section>
+
     </main>
+
+    <footer>
+        <div class="container footer-row">
+            <a href="index.html" class="logo"><strong style="font-size:1.1rem;">TECHTIX<span>.</span></strong></a>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="divisions.html">Divisions</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <span class="footer-copy">&copy; 2026 Techtix</span>
+        </div>
+    </footer>
 
     <script>
         let lastScrollY = window.scrollY;
@@ -83,5 +548,7 @@
             lastScrollY = window.scrollY;
         });
     </script>
+
 </body>
+
 </html>
